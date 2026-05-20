@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import os
 
-st.set_page_config(page_title="AI 통합 추천 플랫폼", layout="wide")
+st.set_page_config(page_title="콘텐츠 통합 추천 플랫폼", layout="wide")
 
 
 @st.cache_data
@@ -59,7 +59,7 @@ def show_dataframe(df):
     )
 
 
-st.title("🚀 AI 콘텐츠 추천 플랫폼")
+st.title("콘텐츠 통합 추천 플랫폼")
 
 main_tab1, main_tab2, main_tab3 = st.tabs([" 도서", " 영화 (준비중)", " 음악 (준비중)"])
 
@@ -80,7 +80,7 @@ with main_tab1:
     else:
         st.error("도서 데이터를 찾을 수 없습니다.")
 
-# 영화 탭
+
 with main_tab2:
     df_movie = load_and_process_data("movie_data.csv")
     if df_movie is not None:
