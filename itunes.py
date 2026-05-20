@@ -1,20 +1,8 @@
 import requests
-import pandas as pd 
+import pandas as pd
 
-music_item_list_url = "https://itunes.apple.com/search"
-music_item_list_params = {
-    "term": "아이유",
-    "country": "KR",
-    "media": "music",
-    "limit": 10,
-    "lang": "ko_kr"
-}
+url = "https://rss.applemarketingtools.com/api/v2/kr/music/most-played/10/songs.json"
+response = requests.get(url)
 
-response = requests.get(url=music_item_list_url, params=music_item_list_params)
-data = response.json()
-
-
-results = data.get("results", [])
-df = pd.DataFrame(results)[['trackName', 'artistName', 'collectionName']]
-
-print(df)
+if response.status_code != 200 :
+ return "데이터를 가져오는 데 실패했습니다."  
