@@ -54,7 +54,6 @@ def show_dataframe(df):
             "크리에이터": st.column_config.TextColumn("크리에이터", width="medium"),
             "장르": st.column_config.TextColumn("장르", width="small"),
             "발행년도": st.column_config.NumberColumn("발행년도", format="%d"),
-            # [수정] ProgressColumn 대신 NumberColumn을 사용하여 숫자만 출력
             "점수": st.column_config.NumberColumn("점수", format="%.1f")
         }
     )

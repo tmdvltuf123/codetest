@@ -42,17 +42,17 @@ def get_balanced_bestseller():
                 "title": item.get("title"),
                 "artist": item.get("author"),
                 "year": int(item.get("pubDate", "2000")[:4]),
-                # 평점을 10점 만점으로 환산 (API는 보통 10점 만점이나 5점 만점인 경우 대비)
+                
                 "score": item.get("customerReviewRank", 0) / 2 if item.get("customerReviewRank", 0) > 5 else item.get("customerReviewRank", 0),
                 "category": "book",
                 "genre": genre_name,
                 "salesPoint": item.get("salesPoint", 0) # 판매지수 추가!
             })
-        time.sleep(1) # API 호출 예의
+        time.sleep(1) 
         
     return pd.DataFrame(all_books)
 
-# 실행 및 저장
+
 df = get_balanced_bestseller()
 df.to_csv("book_data.csv", index=False, encoding='utf-8-sig')
 print("--- 데이터 수집 및 판매지수 포함 저장 완료 ---")
