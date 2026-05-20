@@ -61,13 +61,13 @@ def show_dataframe(df):
 
 st.title("🚀 AI 콘텐츠 추천 플랫폼")
 
-main_tab1, main_tab2, main_tab3 = st.tabs(["📚 도서", "🎬 영화", "🎵 음악 (준비중)"])
+main_tab1, main_tab2, main_tab3 = st.tabs([" 도서", " 영화 (준비중)", " 음악 (준비중)"])
 
 
 with main_tab1:
     df_book = load_and_process_data("book_data.csv")
     if df_book is not None:
-        sub_tab1, sub_tab2, sub_tab3 = st.tabs(["🏆 전체 TOP 10", "📈 장르별 정밀 추천", "🎲 랜덤 발견"])
+        sub_tab1, sub_tab2, sub_tab3 = st.tabs([" 전체 TOP 10", " 장르별 정밀 추천", " 랜덤 발견"])
         
         with sub_tab1:
             show_dataframe(get_display_df(df_book.sort_values(by='popularity_score', ascending=False).head(10)))
@@ -84,10 +84,10 @@ with main_tab1:
 with main_tab2:
     df_movie = load_and_process_data("movie_data.csv")
     if df_movie is not None:
-        st.header("🎬 인기 영화 추천")
+        st.header(" 인기 영화 추천")
         show_dataframe(get_display_df(df_movie.sort_values(by='popularity_score', ascending=False).head(10)))
     else:
         st.info("영화 데이터가 없습니다. `tmdb.py`를 먼저 실행하세요.")
 
 with main_tab3:
-    st.info("🎵 음악 데이터는 곧 업데이트될 예정입니다.")
+    st.info(" 음악 데이터는 곧 업데이트될 예정입니다.")
