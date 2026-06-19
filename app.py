@@ -43,15 +43,11 @@ DISPLAY_MOOD_TO_TAG = {
 
 
 KEYWORD_TO_MOOD_TAGS = {
-    "범죄": {"긴장감"},
-    "모험": {"신비"},
-    "멜로": {"감성"},
-    "사랑": {"감성"},
     "k-pop": {"유쾌함"},
     "록": {"몰입"},
     "발라드": {"감성"},
     "힙합": {"몰입"},
-    "재즈": {"힐링"},
+    "인디": {"감성", "신비"},
 }
 
 if "show_persona_survey" not in st.session_state:
