@@ -46,7 +46,8 @@ def get_balanced_bestseller():
                 "score": item.get("customerReviewRank", 0) / 2 if item.get("customerReviewRank", 0) > 5 else item.get("customerReviewRank", 0),
                 "category": "book",
                 "genre": genre_name,
-                "salesPoint": item.get("salesPoint", 0) # 판매지수 추가!
+                "salesPoint": item.get("salesPoint", 0),
+                "coverUrl": item.get("cover") or "",
             })
         time.sleep(1) 
         
@@ -55,4 +56,4 @@ def get_balanced_bestseller():
 
 df = get_balanced_bestseller()
 df.to_csv("book_data.csv", index=False, encoding='utf-8-sig')
-print("--- 데이터 수집 및 판매지수 포함 저장 완료 ---")
+print("--- 데이터 수집  완료 ---")
